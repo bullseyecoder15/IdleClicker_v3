@@ -12,6 +12,11 @@ public class UpgradeManager : MonoBehaviour {
     public string itemName;
     public float baseCost;
 
+    void Start()
+    {
+        baseCost = cost;
+    }
+
     void Update()
     {
         itemInfo.text = itemName + "\nCost: " + cost + "\nPower: " + clickPower;
