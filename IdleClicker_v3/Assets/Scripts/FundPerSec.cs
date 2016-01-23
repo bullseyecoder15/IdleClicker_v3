@@ -17,9 +17,9 @@ public class FundPerSec : MonoBehaviour {
         fpsDisplay.text = GetFundPerSec() + " funds/sec.";
     }
 
-    public int GetFundPerSec()
+    public float GetFundPerSec()
     {
-        int tick = 0;
+        float tick = 0;
         foreach(ItemManager item in items)
         {
             tick += item.count * item.tickValue;
@@ -30,7 +30,7 @@ public class FundPerSec : MonoBehaviour {
 
     public void AutoFundPerSec()
     {
-        click.funds += GetFundPerSec();
+        click.funds += GetFundPerSec() / 10;
     }
 
     IEnumerator AutoTick()
@@ -38,7 +38,7 @@ public class FundPerSec : MonoBehaviour {
         while (true)
         {
             AutoFundPerSec();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.10f);
         }
     }
 

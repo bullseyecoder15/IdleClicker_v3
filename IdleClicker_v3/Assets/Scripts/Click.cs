@@ -10,8 +10,8 @@ public class Click : MonoBehaviour {
 
     void Update()
     {
-        fundsDisplay.text = "Funds: $" + funds;
-        fpc.text = "Funds/Click: " + fundsPerClick;
+        fundsDisplay.text = "Funds: $" + CurrencyConverter.Instance.GetCurrencyIntoString(funds, false, false);
+        fpc.text = "Funds/Click: " + CurrencyConverter.Instance.GetCurrencyIntoString(fundsPerClick, false, true);
     }
 
     public void Clicked()
